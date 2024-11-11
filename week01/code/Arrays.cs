@@ -13,7 +13,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // Create an empty array to hold multiples
+        double[] multiples = new double[length];
+
+        // Run a for loop to fill the array ending with the length
+        for (int i = 0; i < length; i++)
+        {
+            // Generate the next number and add to i
+            double multiple = number * (i + 1);
+            // Add the multiple to the array
+            multiples[i] = multiple;
+        }
+
+        // Return the array of multiples
+        return multiples;
     }
 
     /// <summary>
@@ -25,9 +38,18 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        // Determine the rotation amount
+        int rotation = amount % data.Count;
+
+        // Split list into two parts
+        List<int> firstPart = data.GetRange(data.Count - rotation, rotation);
+        List<int> secondPart = data.GetRange(0, data.Count - rotation);
+
+        // Clear the original list
+        data.Clear();
+
+        // Join the two parts and add them back to the original list
+        data.AddRange(firstPart);
+        data.AddRange(secondPart);
     }
 }
